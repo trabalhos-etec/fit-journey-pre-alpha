@@ -1,6 +1,6 @@
 # FitJourney Pré-Alpha Demo v.0.0.1 
 
-![Pokédex](https://wallpapers.com/images/featured/pokemon-va6139eg5csznzmw.jpg)
+![SmartEats Exercícios e Nutrição Banner](https://github.com/trabalhos-etec/fit-journey-pre-alpha/assets/109006053/fd18dcfb-3f48-4cb5-9941-df5bbfbbd2de)
 
 ## Descrição
 
