@@ -31,6 +31,7 @@ Estamos cientes de que há muito a ser aprimorado, e estamos comprometidos em ev
 - Login e Cadastro de novos usuários
 - É possível dar LogOut do aplicativo.
 - Adquirir informações sobre as calorias dos alimentos pesquisados.
+- O app envia uma notificação de boas-vindas ao fazer LOGIN.
 
 ## Screenshots
 
@@ -54,7 +55,9 @@ Estamos cientes de que há muito a ser aprimorado, e estamos comprometidos em ev
 
 ![alimenot](https://github.com/trabalhos-etec/fit-journey-pre-alpha/assets/165843427/0ac3fc52-2bdf-4d94-9a8c-9e187e8f8a24)
 
+- Notificação de boas-vindas:
 
+![image](https://github.com/trabalhos-etec/fit-journey-pre-alpha/assets/165843427/ecd5a6e1-b294-49c7-a843-908f517ee19a)
 
 ## Como usar
 
