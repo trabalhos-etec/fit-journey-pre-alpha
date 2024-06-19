@@ -1,10 +1,37 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import firebase from '../firebase.config';
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import * as Notifications from 'expo-notifications';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import * as Notifications from "expo-notifications";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldPlaySound: true,
+    shouldShowAlert: true,
+    shouldSetBadge: true,
+  })
+})
 
 export default function App({ navigation }) {
+  const handleCallNotifications = async () => {
+    const { status } = await Notifications.getPermissionsAsync();
+
+    if (status !== 'granted') {
+      alert("Não deixou as notificações ativas");
+      return;
+    }
+
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: "FitJourney: Boas-vindas!",
+        body: "Seja bem-vindo ao FitJourney!",
+      },
+      trigger: {
+        seconds: 5,
+      },
+    })
+  }
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const auth = getAuth();
@@ -16,7 +43,7 @@ export default function App({ navigation }) {
       alert(`Logado em ${user.uid}`);
       console.log(user.email);
       navigation.navigate('Home', { userName: user.displayName });
-      sendPushNotification(user.expoPushToken); // Call this function with the user's push token
+      handleCallNotifications();
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -25,25 +52,6 @@ export default function App({ navigation }) {
       alert(errorMessage);
     });
   }
-
-  async function sendPushNotification(expoPushToken) {
-    const message = {
-      to: expoPushToken,
-      sound: 'default',
-      title: 'Login Successful',
-      body: 'You have successfully logged in!',
-    };
-  
-    await fetch('https://exp.host/--/api/v2/push/send', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(message),
-    });
-  }
-
 
   return (
     <View style={styles.container}>
