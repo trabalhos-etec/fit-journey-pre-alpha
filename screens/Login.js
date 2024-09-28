@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import firebase from '../firebase.config';
+import firebase from '../firebase';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import * as Notifications from "expo-notifications";
 
@@ -42,7 +42,7 @@ export default function App({ navigation }) {
       const user = userCredential.user;
       alert(`Logado em ${user.uid}`);
       console.log(user.email);
-      navigation.navigate('Home', { userName: user.displayName });
+      navigation.replace('Home', { userName: user.displayName });
       handleCallNotifications();
     })
     .catch((error) => {
@@ -73,7 +73,6 @@ export default function App({ navigation }) {
       <TouchableOpacity style={styles.button} onPress={() => loginFirebase()}>
         <Text style={styles.buttonText}>Login Seguro</Text>
       </TouchableOpacity>
-      <Text style={styles.securityPhrase}>Sua informação está segura conosco.</Text>
       <Text style={styles.notHaveAccount} onPress={() => navigation.navigate('Register')}>Não tem uma conta? <Text style={styles.bold}>Crie uma!</Text></Text>
     </View>
   );
@@ -120,16 +119,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter_700Bold',
     marginBottom: 20,
   },
-  securityPhrase: {
-    color: "#0DE347",
-    fontFamily: 'Inter_700Bold',
-    fontSize: 12,
-  },
   notHaveAccount: {
     fontFamily: 'Inter_400Regular',
     marginTop: 40,
   },
-
   bold: {
     fontWeight: 'bold'
   }
