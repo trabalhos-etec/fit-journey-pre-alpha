@@ -45,6 +45,6 @@ Estamos cientes de que há muito a ser aprimorado, e estamos comprometidos em ev
 
 ## Autor e Professora
 
-ALUNOS: *Daniel Silva Alves e Luiz Gabriel Morato Dias* - 3ºA MTec - PI / Desenvolvimento de Sistemas.
+ALUNOS: *Daniel Silva Alves, DAvi OLiveira Barros, Fernando Vítor, Gabriel Rubio, Gustavo Oliveira e Luiz Gabriel Morato Dias* - 3ºA MTec - PI / Desenvolvimento de Sistemas.
 <br>
 PROFESSORA: *Alicia Stefany da Silva* - Programação de Aplicativos II.
